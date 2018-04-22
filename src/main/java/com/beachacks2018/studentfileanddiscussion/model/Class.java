@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -35,6 +36,12 @@ public class Class implements Serializable {
     
     @OneToMany()
     private Collection<File> files ;
+    
+    @ManyToOne
+    private Department department ;
+    
+    @OneToMany(mappedBy = "Class", cascade = CascadeType.ALL)
+    private Collection<User> users;
     
     public static long getSerialVersionUID() {
         return serialVersionUID;

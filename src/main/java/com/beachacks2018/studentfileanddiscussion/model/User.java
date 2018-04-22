@@ -6,11 +6,15 @@
 package com.beachacks2018.studentfileanddiscussion.model;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -28,6 +32,9 @@ public class User implements Serializable {
     private String userName;
     private String password;
 
+    @ManyToMany(mappedBy = "User", cascade = CascadeType.ALL)
+    private Collection<Class> classes;
+    
     public Long getId() {
         return id;
     }

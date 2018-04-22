@@ -6,12 +6,14 @@
 package com.beachacks2018.studentfileanddiscussion.model;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -31,6 +33,8 @@ public class Department implements Serializable {
     @ManyToOne
     private School school;
     
+    @OneToMany()
+    private Collection<Class> classes ;
     
     /**
      * Get Department Name
