@@ -6,11 +6,15 @@
 package com.beachacks2018.studentfileanddiscussion.model;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -26,7 +30,12 @@ public class Class implements Serializable {
     private String className;
     private long classNum;
   
-
+    @OneToMany()
+    private Collection<Message> messages ;
+    
+    @OneToMany()
+    private Collection<File> files ;
+    
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
