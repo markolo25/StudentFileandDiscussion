@@ -40,7 +40,7 @@ public class Class implements Serializable {
     @ManyToOne
     private Department department ;
     
-    @OneToMany(mappedBy = "Class", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "Class", cascade = CascadeType.ALL)
     private Collection<User> users;
     
     public static long getSerialVersionUID() {
