@@ -13,20 +13,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 /**
  *
  * @author arare
  */
 @Entity
-public class File implements Serializable {
+public class Message implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String fileName;
+    private String topic;
+    private String message;
 
     @ManyToOne
     private Class Class;
@@ -35,15 +35,36 @@ public class File implements Serializable {
         return id;
     }
 
+    public void setTopic(String topic) {
+        this.topic = topic;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getTopic() {
+        return topic;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 41 * hash + Objects.hashCode(this.id);
-        hash = 41 * hash + Objects.hashCode(this.fileName);
+        int hash = 5;
+        hash = 59 * hash + Objects.hashCode(this.id);
+        hash = 59 * hash + Objects.hashCode(this.topic);
+        hash = 59 * hash + Objects.hashCode(this.message);
         return hash;
     }
 
@@ -58,8 +79,11 @@ public class File implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final File other = (File) obj;
-        if (!Objects.equals(this.fileName, other.fileName)) {
+        final Message other = (Message) obj;
+        if (!Objects.equals(this.topic, other.topic)) {
+            return false;
+        }
+        if (!Objects.equals(this.message, other.message)) {
             return false;
         }
         if (!Objects.equals(this.id, other.id)) {
@@ -70,19 +94,9 @@ public class File implements Serializable {
 
     @Override
     public String toString() {
-        return "File{" + "id=" + id + ", fileName=" + fileName + '}';
+        return "Message{" + "id=" + id + ", topic=" + topic + ", message=" + message + '}';
     }
 
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    
-
-    
+   
     
 }
