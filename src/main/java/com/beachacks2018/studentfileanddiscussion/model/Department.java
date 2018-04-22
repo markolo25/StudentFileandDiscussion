@@ -8,6 +8,7 @@ package com.beachacks2018.studentfileanddiscussion.model;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,7 +34,7 @@ public class Department implements Serializable {
     @ManyToOne
     private School school;
     
-    @OneToMany()
+    @OneToMany
     private Collection<Class> classes ;
     
     /**
