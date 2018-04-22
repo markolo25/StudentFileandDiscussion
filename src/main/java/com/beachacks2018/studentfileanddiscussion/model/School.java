@@ -36,8 +36,16 @@ public class School implements Serializable {
     @NotNull
     private String schoolName;
     
-    @OneToMany(mappedBy = "School", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "school", cascade = CascadeType.ALL)
     private Collection<Department> departments;
+
+    public Collection<Department> getDepartments() {
+        return departments;
+    }
+
+    public void setDepartments(Collection<Department> departments) {
+        this.departments = departments;
+    }
     
     
     

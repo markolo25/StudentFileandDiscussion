@@ -31,10 +31,10 @@ public class Class implements Serializable {
     private String className;
     private long classNum;
   
-    @OneToMany()
+    @OneToMany(mappedBy = "Class", cascade = CascadeType.ALL)
     private Collection<Message> messages ;
     
-    @OneToMany()
+    @OneToMany(mappedBy = "Class", cascade = CascadeType.ALL)
     private Collection<File> files ;
     
     @ManyToOne

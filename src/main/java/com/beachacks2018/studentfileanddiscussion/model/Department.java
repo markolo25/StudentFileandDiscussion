@@ -34,7 +34,7 @@ public class Department implements Serializable {
     @ManyToOne
     private School school;
     
-    @OneToMany
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
     private Collection<Class> classes ;
     
     /**
