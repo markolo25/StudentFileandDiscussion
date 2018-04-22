@@ -33,7 +33,7 @@ public class User implements Serializable {
     private String password;
 
     @ManyToMany(mappedBy = "User", cascade = CascadeType.ALL)
-    private Collection<Class> classes;
+    private Collection<Class> Class;
     
     public Long getId() {
         return id;
